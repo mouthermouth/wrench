@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{{url_for('static', filename = 'icon.png')}}" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+:root{
+    --font1 : 'Montserrat', sans-serif;
+    --font2 : 'Quicksand', sans-serif;    
+    --font3 : 'JetBrains Mono', monospace;
+}
+body {
+    margin: 0;
+    background-color: #000;
+  }
+  
+  a {
+    color: #fff;
+  }
+  
+  /* header */
+  
+  .header {
+background-color: #000;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    font-family: var(--font1);
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #000;
+
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    margin-left: 0px;   
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+  }
+li { 
+  display: table-cell; 
+  position: relative; 
+}
+a {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.7s ease 0s, left 0.7s ease 0s;
+  width: 0;
+}
+a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+ 
+  .header li a:hover,
+  .header .menu-btn:hover {
+      color: #fff;
+
+  }
+  .home-image{
+      object-fit: cover;
+      object-position: bottom;
+      max-width: 100%;
+  }
+  
+  .header .logo img {
+    display: block;
+    float: left;
+    margin-top: -20px;
+    width: 100px;
+    text-decoration: none;
+  }
+  
+  /* menu */
+  
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+    .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  .main-links {
+    text-align: center;
+    font-family: var(--font1);
+
+  }
+  .main-links a{
+    text-decoration: none;
+
+  }
+  .main-links a p{
+    margin-top: -15px;
+    font-weight: 600;
+  }
+  .main-links a:hover{
+    color: black;
+  }
+  .copyright{
+    text-align: center;
+    font-family: var(--font1);
+    color: black;
+    font-weight: 600;
+  }
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+ 
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+  }
+@media(max-width : 299px){
+    .home-image{
+        height: 300px;
+        margin-top: -50px;
+    }
+}
+@media(min-width : 300px){
+    .home-image{
+        height: 400px;
+        margin-top: -100px;
+    }
+}
+@media(min-width : 531px){
+    .home-image{
+        height: 600px;
+        margin-top: -250px;
+    }
+}
+@media(min-width : 800px){
+    .home-image{
+        height: 700px;
+        margin-top: -350px;
+    }
+}
+@media(min-width : 935px){
+    .home-image{
+        height: 900px;
+        margin-top: -450px;
+    }
+}
+@media(min-width :1200px){
+    .home-image{
+        height: 1100px;
+        height: 1000px;
+        margin-top: -530px;
+    }
+
+}
+@media(min-width : 1300px){
+    .home-image{
+        height: 1500px;
+        height: 1200px;
+        margin-top: -650px;
+    }
+}
+@media (min-width : 1600px) {
+    .home-image{
+        height: 2000px;
+        margin-top: -1000px;
+    }
+
+}
+@media(min-width : 2665px){
+    .home-image{
+        height: 3000px;
+        margin-top: -1800px;
+    }
+
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body onload="welcomeMf()">
+  <audio id="welcomeLog">
+    <source src="{{url_for('static', filename = 'welcome.mp3')}}" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+      var log = document.getElementById("welcomeLog"); 
+  
+  function welcomeMf() { 
+    log.play(); 
+  } 
+
+  </script>
+    <header class="header">
+        <a href="/" class="logo"><img src="{{url_for('static', filename = 'logo.png')}}" alt=""></a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/renaissance">Renaissance</a></li>
+            <li><a href="/aiera">AI Era</a></li>
+            <li><a href="/spacecraze">Space Craze</a></li>
+            <li><a href="/biotech">Biotechnology</a></li>
+        </ul> <br><br>
+    </header>    
+    <main>
+        <br> <br> <br> <br>
+    
+    <br><br>
+    <img style="margin-left: 40%;" src="{{url_for('static', filename = 'aiera.gif')}}" width="350px" alt=""> <br> <br> <br><br><br>
+    <p style = "color: white; font-family: var(--font2); font-size: 25px; max-width: 90%; margin : auto;">Humans being having great mind has developed recently a hyper enginnering model which has changed today's times. This Hyper Enginnering model is known as Artifical Intelligence. Artificial intelligence (AI) is intelligence demonstrated by machines, opposite to that of natural intelligence displayed by normal organisms including humans. We can simply say it as a program or system that perceives its environment and takes actions that maximize its chance of achieving its goals.Some popular accounts use the term "artificial intelligence" to describe machines that mimic "cognitive" functions that humans associate with the human mind, such as "learning" and "problem solving", however, this definition is rejected by major AI researchers.</p> 
+<br><br>
+   <img style="float: right;" src="{{url_for('static', filename = 'aierapic.jpg')}}" width="350px" alt="">
+    <p style = "color: white; font-family: var(--font2); font-size: 25px; max-width: 90%; margin: auto; top: 20%;">The general problem of simulating (or creating) intelligence has been broken down into sub-problems. These consist of particular traits or capabilities that researchers expect an intelligent system to display. The traits described below have received the most attention.Knowledge representation and knowledge engineering allow AI programs to answer questions intelligently and make deductions about real world facts.A representation of "what exists" is an ontology, the set of objects, relations, concepts, and properties formally described so that software agents can interpret them. The most general ontologies are called upper ontologies, which attempt to provide a foundation for all other knowledge and act as mediators between domain ontologies that cover specific knowledge about a particular knowledge domain (field of interest or area of concern). A truly intelligent program would also need access to commonsense knowledge; the set of facts that an average person knows. The semantics of an ontology is typically represented in a description logic, such as the Web Ontology Language. AI research has developed tools to represent specific domains, such as: objects, properties, categories and relations between objects situations, events, states and time causes and effects knowledge about knowledge (what we know about what other people know) default reasoning (things that humans assume are true until they are told differently and will remain true even when other facts are changing) as well as other domains. Among the most difficult problems in AI are: the breadth of commonsense knowledge (the number of atomic facts that the average person knows is enormous) and the sub-symbolic form of most commonsense knowledge (much of what people know is not represented as "facts" or "statements" that they could express verbally).</p> 
+<br>
+<br>
+<img style="float: left; padding: 10px 20px;" src="{{url_for('static', filename = 'sophia.jpg')}}" width="350px" alt="">
+<p style = "color: white; font-family: var(--font2); font-size: 25px; max-width: 90%; margin: auto; top: 20%;">Aritifical Intelligence is a technology which before coming to the play was hidden inside the great sphere of humans. Yay! we are proud of ourselves that we imagined such a big art that has changed our lives and is helping in our day to day life. But wait a second were you welcomed by a strange voice?
+    Don't worry this is just a voice engine developed by us with little help from Google, as we dont have much resources till now. This voice engine is of Bagley, a simplied Artifical Intelligence which would come existence in near future.  </p>
+</main>
+<br>
+<br>
+<audio id="audioLog">
+    <source src="{{url_for('static', filename = 'ai.mp3')}}" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <p>Click the buttons to play or pause the audio.</p>
+  <button style="margin-left : 45%; color: white; font-family: var(--font3); border: none; background-color: black; cursor: pointer; font-size: 20px; font-family : var(--font3);" onclick="logAudio()" type="button">Play Audio</button><br>
+  <button style="margin-left : 45%; color: white; font-family: var(--font3); border: none; background-color: black; cursor: pointer; font-size: 20px; font-family : var(--font3);" onclick="unlogAudio()" type="button">Pause Audio</button>
+  <script>
+      var x = document.getElementById("audioLog"); 
+  
+      function logAudio() { 
+        x.play(); 
+      } 
+  
+      function unlogAudio() { 
+       x.pause(); 
+      }
+  </script> 
+  <p style = "color: red; font-family: var(--font3); margin-left: 10%;">To hear the audio version of the page click on 'play audio' to play and 'pause audio' to pause the audio. THIS WEBSITE IS NOT RESPONSIVE BECAUSE OF TIME STRAINS.</p>
+</body>
+</html>

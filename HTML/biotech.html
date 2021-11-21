@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{{url_for('static', filename = 'icon.png')}}" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+:root{
+    --font1 : 'Montserrat', sans-serif;
+    --font2 : 'Quicksand', sans-serif;    
+    --font3 : 'JetBrains Mono', monospace;
+}
+body {
+    margin: 0;
+    background-color: #000;
+  }
+  
+  a {
+    color: #fff;
+  }
+  
+  /* header */
+  
+  .header {
+background-color: #000;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    font-family: var(--font1);
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #000;
+
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    margin-left: 0px;   
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+  }
+li { 
+  display: table-cell; 
+  position: relative; 
+}
+a {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.7s ease 0s, left 0.7s ease 0s;
+  width: 0;
+}
+a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+ 
+  .header li a:hover,
+  .header .menu-btn:hover {
+      color: #fff;
+
+  }
+  .home-image{
+      object-fit: cover;
+      object-position: bottom;
+      max-width: 100%;
+  }
+  
+  .header .icon img {
+    display: block;
+    float: left;
+    margin-top: -20px;
+    width: 100px;
+    text-decoration: none;
+  }
+  
+  /* menu */
+  
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+    .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  .main-links {
+    text-align: center;
+    font-family: var(--font1);
+
+  }
+  .main-links a{
+    text-decoration: none;
+
+  }
+  .main-links a p{
+    margin-top: -15px;
+    font-weight: 600;
+  }
+  .main-links a:hover{
+    color: black;
+  }
+  .copyright{
+    text-align: center;
+    font-family: var(--font1);
+    color: black;
+    font-weight: 600;
+  }
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+ 
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+  }
+@media(max-width : 299px){
+    .home-image{
+        height: 300px;
+        margin-top: -50px;
+    }
+}
+@media(min-width : 300px){
+    .home-image{
+        height: 400px;
+        margin-top: -100px;
+    }
+}
+@media(min-width : 531px){
+    .home-image{
+        height: 600px;
+        margin-top: -250px;
+    }
+}
+@media(min-width : 800px){
+    .home-image{
+        height: 700px;
+        margin-top: -350px;
+    }
+}
+@media(min-width : 935px){
+    .home-image{
+        height: 900px;
+        margin-top: -450px;
+    }
+}
+@media(min-width :1200px){
+    .home-image{
+        height: 1100px;
+        height: 1000px;
+        margin-top: -530px;
+    }
+
+}
+@media(min-width : 1300px){
+    .home-image{
+        height: 1500px;
+        height: 1200px;
+        margin-top: -650px;
+    }
+}
+@media (min-width : 1600px) {
+    .home-image{
+        height: 2000px;
+        margin-top: -1000px;
+    }
+
+}
+@media(min-width : 2665px){
+    .home-image{
+        height: 3000px;
+        margin-top: -1800px;
+    }
+
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo"><img src="{{url_for('static', filename = 'icon.png')}}" alt=""></a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/renaissance">Renaissance</a></li>
+            <li><a href="/aiera">AI Era</a></li>
+            <li><a href="/spacecraze">Space Craze</a></li>
+            <li><a href="/biotech">Biotechnology</a></li>
+        </ul> <br><br>
+    </header>    
+    <main>
+        <br> <br> <br> <br>
+        <p style = "color: white; font-family: var(--font2); font-size: 20px; max-width: 90%; margin : auto;">Hello world</p>
+    </main>
+    <img style="margin-left: 25%;" src="{{url_for('static', filename = 'animal.gif')}}" width="700px" alt=""> <br> <br>
+    <p style = "color: white; font-family: var(--font2); font-size: 25px; max-width: 90%; margin : auto;">The term biotechnology refers to any technology, process or practice that modifies or harnesses any living organism or system to be useful to any human purpose. The word defines itself: bio means life and technology is defined as the application, or harnessing of science for a specific purpose. When you hear the word biotechnology today, you probably think about scientists working at the cutting edge with viruses and genomes in a state-of-the-art laboratory, but when you consider how many different types of life there are, and how many different types of technologies there are, you begin to realize that biotechnology is a broad category that has been around for ages!</p> 
+    <img style="float: right; margin-right: 20px; padding: 10px 20px;" src="{{url_for('static', filename = 'bio1.jpg')}}" width="300px" alt=""> <br> <br>
+    <p style = "color: white; font-family: var(--font2); font-size: 25px; max-width: 90%; margin : auto;">It is not known precisely when people began using the word biotechnology to refer to technologies based on living things. Many believe the phrase was first coined in the early 1900s by a Hungarian engineer named Károly Ereky, but the practice of biotechnology began long before that and dates back almost to the beginning of human existence. But we have basically kept it in practice when we needed it in cases of:
+      - Agriculture <br>
+      -Vaccination<br>
+      -Understanding Human DNA<br>
+      -Mutation<br>
+      -Understanding of Environement</p>
+      <img style="float: right; margin-right: 20px; padding: 10px 20px;" src="{{url_for('static', filename = 'bio2.jpg')}}" width="300px" alt=""> <br> <br>
+      <p style = "color: white; font-family: var(--font2); font-size: 25px; max-width: 90%; margin : auto;"> But still its a question that before the development of such advanced technology nature was controlling all the phenomenon then what made us feel to develop so?
+        The answer is simple, it was our curiosity, it was our imagination and thinking power which made us aware of the need that we humans should develop such technology that can make our life easy and help us to understand more about nature and its fruit.</p>
+        <br><br>
+        <audio id="audioLog">
+          <source src="{{url_for('static', filename = 'bio.mp3')}}" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <p>Click the buttons to play or pause the audio.</p>
+        <button style="margin-left : 45%; color: white; border: none; background-color: black; cursor: pointer; font-size: 20px; font-family : var(--font3);" onclick="logAudio()" type="button">Play Audio</button><br>
+        <button style="margin-left : 45%; color: white; border: none; background-color: black; cursor: pointer; font-size: 20px; font-family : var(--font3);" onclick="unlogAudio()" type="button">Pause Audio</button>
+        <script>
+            var x = document.getElementById("audioLog"); 
+        
+            function logAudio() { 
+              x.play(); 
+            } 
+        
+            function unlogAudio() { 
+             x.pause(); 
+            }
+        </script> 
+        <p style = "color: red; font-family: var(--font3); margin-left: 10%;">To hear the audio version of the page click on 'play audio' to play and 'pause audio' to pause the audio. THIS WEBSITE IS NOT RESPONSIVE BECAUSE OF TIME STRAINS.</p>
+</body>
+</html>
